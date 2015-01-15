@@ -10,7 +10,7 @@
 
 @interface DPUserDefaults : NSObject
 
-+(DPUserDefaults*)sharedUserDefaults;
++(DPUserDefaults*)standardUserDefaults;
 
 -(void)setUserId:(NSString*)userId;
 -(NSString*)currentUserId;

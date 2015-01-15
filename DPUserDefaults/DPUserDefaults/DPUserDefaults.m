@@ -18,7 +18,7 @@
 
 static DPUserDefaults *shared;
 
-+(DPUserDefaults*)sharedUserDefaults{
++(DPUserDefaults*)standardUserDefaults{
     if (!shared) {
         shared = [[DPUserDefaults alloc]init];
     }
