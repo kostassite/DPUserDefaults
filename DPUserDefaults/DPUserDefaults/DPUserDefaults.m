@@ -7,6 +7,7 @@
 //
 
 #import "DPUserDefaults.h"
+#import "User.h"
 
 @interface DPUserDefaults (){
     NSString *_userId;
@@ -27,17 +28,14 @@ static DPUserDefaults *shared;
 
 #pragma mark - User Methods
 
--(void)setUserId:(NSString*)userId{
-    _userId = userId;
-}
-
 -(NSString*)currentUserId{
-    return _userId;
+    return [User currentUser].email;
 }
 
 -(NSString*)userKeyForKey:(NSString*)key{
-    NSAssert(_userId, @"UserId cant be nil");
-    return [NSString stringWithFormat:@"DPUserDefaults-%@-%@",_userId,key];
+    NSAssert([User currentUser], @"User cant be nil");
+    
+    return [NSString stringWithFormat:@"DPUserDefaults-%@-%@",self.currentUserId,key];
 }
 
 #pragma mark - Object

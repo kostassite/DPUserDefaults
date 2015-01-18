@@ -12,7 +12,6 @@
 
 +(DPUserDefaults*)standardUserDefaults;
 
--(void)setUserId:(NSString*)userId;
 -(NSString*)currentUserId;
 
 
