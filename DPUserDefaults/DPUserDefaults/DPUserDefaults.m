@@ -29,6 +29,9 @@ static DPUserDefaults *shared;
 #pragma mark - User Methods
 
 -(NSString*)currentUserId{
+    if ([User currentUser].userId) {
+        return [User currentUser].userId;
+    }
     return [User currentUser].email;
 }
 
