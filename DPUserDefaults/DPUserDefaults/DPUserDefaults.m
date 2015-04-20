@@ -8,6 +8,7 @@
 
 #import "DPUserDefaults.h"
 #import "User.h"
+#import "AfterLoginManager.h"
 
 @interface DPUserDefaults (){
     NSString *_userId;
@@ -29,7 +30,7 @@ static DPUserDefaults *shared;
 #pragma mark - User Methods
 
 -(NSString*)currentUserId{
-    if ([User currentUser].userId) {
+    if ([AfterLoginManager currentUserUsingUserIdAsUniqueId]) {
         return [User currentUser].userId;
     }
     return [User currentUser].email;
