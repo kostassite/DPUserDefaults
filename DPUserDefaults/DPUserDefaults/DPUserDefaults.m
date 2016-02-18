@@ -30,10 +30,7 @@ static DPUserDefaults *shared;
 #pragma mark - User Methods
 
 -(NSString*)currentUserId{
-    if ([AfterLoginManager currentUserUsingUserIdAsUniqueId]) {
-        return [User currentUser].userId;
-    }
-    return [User currentUser].email;
+    return [User currentUser].userId;
 }
 
 -(NSString*)userKeyForKey:(NSString*)key{
