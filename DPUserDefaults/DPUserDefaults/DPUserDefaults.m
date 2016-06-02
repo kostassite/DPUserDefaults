@@ -42,6 +42,9 @@ static DPUserDefaults *shared;
 #pragma mark - Object
 
 - (id)objectForKey:(NSString *)key{
+    if (![User currentUser]) {
+        return nil;
+    }
     return [[NSUserDefaults standardUserDefaults]objectForKey:[self userKeyForKey:key]];
 }
 
@@ -60,6 +63,9 @@ static DPUserDefaults *shared;
 }
 
 - (BOOL)boolForKey:(NSString *)key{
+    if (![User currentUser]) {
+        return NO;
+    }
     return [[NSUserDefaults standardUserDefaults]boolForKey:[self userKeyForKey:key]];
 }
 
