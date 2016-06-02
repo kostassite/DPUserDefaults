@@ -34,7 +34,9 @@ static DPUserDefaults *shared;
 }
 
 -(NSString*)userKeyForKey:(NSString*)key{
-    NSAssert([User currentUser], @"User cant be nil");
+    if (![User currentUser]) {
+        return @"DPUserDefaults-NoUser";
+    }
     
     return [NSString stringWithFormat:@"DPUserDefaults-%@-%@",self.currentUserId,key];
 }
